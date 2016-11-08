@@ -1,0 +1,21 @@
+<ul class="movie-list">
+    {{#each collection.models}}
+        {{#with attributes}}
+            <li class="item">
+                <a href="#movies/{{id}}">
+                    {{#if poster_path}}
+                        <img src="{{getImageUrl 'poster' poster_path}}">
+                    {{else}}
+                        <div class="movie-container">
+                            <i class="fa fa-film"></i>
+                            <p class="ellipsis">{{title}}</p>
+                            {{#if release_year}}
+                                <p class="ellipsis">{{release_year}}</p>
+                            {{/if}}
+                        </div>
+                    {{/if}}
+                </a>
+            </li>
+        {{/with}}
+    {{/each}}
+</ul>

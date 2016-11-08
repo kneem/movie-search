@@ -1,0 +1,22 @@
+{{#each this}}
+    <div class="credits row" data-order="3">
+        <h3><i class="fa {{icon}}"></i>{{header}}</h3>
+        {{#if list.length}}
+            {{#itemRows list 5}}
+                <div class="credits-member col-sm-2">
+                    {{#if profile_path}}
+                            <img src="{{getImageUrl 'profile' profile_path}}" class="img-responsive" alt="{{lookup this ../primary}}">
+                    {{else}}
+                        <div class="credits-profile flex-center">
+                            <i class="fa fa-user-circle"></i>
+                        </div>
+                    {{/if}}
+                    <p class="name ellipsis" title="{{lookup this ../primary}}">{{lookup this ../primary}}</p>
+                    <p class="ellipsis" title="{{lookup this ../secondary}}">{{lookup this ../secondary}}</p>
+                </div>
+            {{/itemRows}}
+        {{else}}
+            <div class="text-center">No {{header}} information found at this time.</div>
+        {{/if}}
+    </div>
+{{/each}}

@@ -1,0 +1,50 @@
+{{#with model.attributes}}
+    <div class="detail">
+        {{#if backdrop_path}}
+            <div class="backdrop">
+                <img src="{{getImageUrl 'backdrop' backdrop_path}}">
+            </div>
+        {{/if}}
+        <div class="content container">
+            <h1 class="title" data-order="1">{{../titleLabel}}</h1>
+            {{#if tagline}}
+                <h2 class="tagline" data-order="4">{{tagline}}</h2>
+            {{/if}}
+            <div class="movie-info row" data-order="2">
+                <div class="poster col-md-4">
+                    {{#if poster_path}}
+                            <img src="{{getImageUrl 'poster' poster_path}}">
+                    {{else}}
+                        <div class="poster-container">
+                            <i class="fa fa-film"></i>
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="info col-md-8 flex-column">
+                    <div class="overview">
+                        <h3>Overview</h3>
+                        <p class="ellipsis-big" title="{{overview}}">{{overview}}</p>
+                    </div>
+                    <div class="movie-attributes row">
+                        <div class="col-md-4">
+                            <h3>Rating</h3>
+                            <p><i class="fa fa-star"></i>{{../voteLabel}}</p>
+                            {{#if ../voteUsers}}
+                                <p class="vote-count">{{../voteUsers}}</p>
+                            {{/if}}
+                        </div>
+                        <div class="col-md-4">
+                            <h3>Budget</h3>
+                            <p><i class="fa fa-money"></i>{{../budget}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>Runtime</h3>
+                            <p><i class="fa fa-clock-o"></i>{{../runtime}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="credits"></div>
+        </div>
+    </div>
+{{/with}}
